@@ -83,5 +83,12 @@
       "status": "published",
       "display": true
     }
+  },
+  "SDRF": {
+    "SDRF": {
+      "name": "SDRF",
+      "status": "published",
+      "display": true
+    }
   }
 }

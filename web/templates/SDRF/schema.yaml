@@ -1,0 +1,1141 @@
+id: https://example.com/SDRF
+name: SDRF
+description: ''
+version: 1.0.0
+in_language:
+- en
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  PRIDE: http://purl.obolibrary.org/obo/PRIDE
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+  SDRF:
+    name: SDRF
+    title: Template Name
+    description: Specification for PRIDE samples data gathering
+    is_a: dh_interface
+    see_also: templates/TEMPLATE_FOLDER/SOP.pdf
+    slots:
+    - source_name
+    - organism
+    - organism_part
+    - cell_type
+    - ancestry_category
+    - age
+    - sex
+    - disease
+    - individual
+    - biological_replicate
+    - assay_name
+    - technology_type
+    - proteomics_data_acquisition_method
+    - technical_replicate
+    - data_file
+    - fraction_identifier
+    - label
+    - instrument
+    - cleavage_agent_details
+    - modification_parameters
+    - precursor_mass_tolerance
+    - fragment_mass_tolerance
+    slot_usage:
+      source_name:
+        rank: 1
+        slot_group: SDRF form
+      organism:
+        rank: 2
+        slot_group: SDRF form
+      organism_part:
+        rank: 3
+        slot_group: SDRF form
+      cell_type:
+        rank: 4
+        slot_group: SDRF form
+      ancestry_category:
+        rank: 5
+        slot_group: SDRF form
+      age:
+        rank: 6
+        slot_group: SDRF form
+      sex:
+        rank: 7
+        slot_group: SDRF form
+      disease:
+        rank: 8
+        slot_group: SDRF form
+      individual:
+        rank: 9
+        slot_group: SDRF form
+      biological_replicate:
+        rank: 10
+        slot_group: SDRF form
+      assay_name:
+        rank: 11
+        slot_group: SDRF form
+      technology_type:
+        rank: 12
+        slot_group: SDRF form
+      proteomics_data_acquisition_method:
+        rank: 13
+        slot_group: SDRF form
+      technical_replicate:
+        rank: 14
+        slot_group: SDRF form
+      data_file:
+        rank: 15
+        slot_group: SDRF form
+      fraction_identifier:
+        rank: 16
+        slot_group: SDRF form
+      label:
+        rank: 17
+        slot_group: SDRF form
+      instrument:
+        rank: 18
+        slot_group: SDRF form
+      cleavage_agent_details:
+        rank: 19
+        slot_group: SDRF form
+      modification_parameters:
+        rank: 20
+        slot_group: SDRF form
+      precursor_mass_tolerance:
+        rank: 21
+        slot_group: SDRF form
+      fragment_mass_tolerance:
+        rank: 22
+        slot_group: SDRF form
+slots:
+  source_name:
+    name: source_name
+    title: source name
+    description: Reference to the Sample. This term is use for cross-reference samples
+      in SDRF for proteomics
+    slot_uri: PRIDE:0000623
+    identifier: true
+    range: WhitespaceMinimizedString
+    required: true
+    examples:
+    - value: Sample 1
+    exact_mappings:
+    - SDRF:source%20name
+  organism:
+    name: organism
+    title: organism
+    description: A material entity that is an individual living system, such as animal,
+      plant, bacteria or virus, that is capable of replicating or reproducing, growth
+      and maintenance in the right environment. An organism may be unicellular or
+      made up, like humans, of many billions of cells divided into specialized tissues
+      and organs.
+    slot_uri: OBI:0100026
+    any_of:
+    - range: CharacteristicsOrganismMenu
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: Homo sapiens
+    exact_mappings:
+    - SDRF:characteristics%5Borganism%5D
+  organism_part:
+    name: organism_part
+    title: organism part
+    description: The part of organism's anatomy or substance arising from an organism
+      from which the biomaterial was derived, excludes cells.
+    comments: Check the organism part ontology on https://www.ebi.ac.uk/ols4/ and
+      fill the column
+    slot_uri: EFO:0000635
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: tissue, organ, system, sperm, blood or body location (arm).
+    exact_mappings:
+    - SDRF:characteristics%5Borganism%20part%5D
+  cell_type:
+    name: cell_type
+    title: cell type
+    description: A cell type is a distinct morphological or functional form of cell.
+    comments: Check the cell type ontology with EFO on https://www.ebi.ac.uk/ols4/
+      and fill the column
+    slot_uri: EFO:0000324
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: adipocyte
+    exact_mappings:
+    - SDRF:characteristics%5Bcell%20type%5D
+  ancestry_category:
+    name: ancestry_category
+    title: ancestry category
+    description: Population category defined using ancestry informative markers (AIMs)
+      based on genetic/genomic data
+    slot_uri: HANCESTRO:0004
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: Asian, European
+    exact_mappings:
+    - SDRF:characteristics%5Bancestry%20category%5D
+  age:
+    name: age
+    title: age
+    description: A temporal measurement of the time period elapsed since an identifiable
+      point in the life cycle of an organism. If a developmental stage is specified,
+      the identifiable point would be the beginning of that stage. Otherwise the identifiable
+      point must be specified such as planting (e.g. 3 days post planting).
+    slot_uri: EFO:0000246
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: 12Y
+    exact_mappings:
+    - SDRF:characteristics%5Bage%5D
+  sex:
+    name: sex
+    title: sex
+    description: An organismal quality inhering in a bearer by virtue of the bearer's
+      ability to undergo sexual reproduction in order to differentiate the individuals
+      or types involved. Term applied to any organism able to undergo sexual reproduction
+      in order to differentiate the individuals or types involved. Sexual reproduction
+      is defined as the ability to exchange genetic material with the potential of
+      recombinant progeny. The assemblage of physical properties or qualities by which
+      male is distinguished from female; the physical difference between male and
+      female; the distinguishing peculiarity of male or female.
+    slot_uri: PATO:0000047
+    any_of:
+    - range: CharacteristicsSexMenu
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: Male, Female
+    exact_mappings:
+    - SDRF:characteristics%5Bsex%5D
+  disease:
+    name: disease
+    title: disease
+    description: A disease is a disposition to undergo pathological processes that
+      exists in an organism because of one or more disorders in that organism.
+    comments: Check the disease ontology with MONDO on https://www.ebi.ac.uk/ols4/
+      and fill the column
+    slot_uri: MONDO:0000001
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: Sickle cell anemia
+    exact_mappings:
+    - SDRF:characteristics%5Bdisease%5D
+  individual:
+    name: individual
+    title: individual
+    description: An individual used as a specimen in an experiment, from which a material
+      sample was derived.
+    slot_uri: EFO:0000542
+    any_of:
+    - range: WhitespaceMinimizedString
+    - range: NullValueMenu
+    required: true
+    examples:
+    - value: ADE1
+    exact_mappings:
+    - SDRF:characteristics%5Bindividual%5D
+  biological_replicate:
+    name: biological_replicate
+    title: biological replicate
+    description: The study variable is 'biological replicate'. This means, the run
+      was generated from another individual or sample.
+    slot_uri: MS:1001809
+    range: WhitespaceMinimizedString
+    required: true
+    examples:
+    - value: 1, 2
+    exact_mappings:
+    - SDRF:characteristics%5Bbiological%20replicate%5D
+  assay_name:
+    name: assay_name
+    title: assay name
+    description: assay name for the MS run
+    range: WhitespaceMinimizedString
+    required: true
+    examples:
+    - value: run 1
+    exact_mappings:
+    - SDRF:assay%20name
+  technology_type:
+    name: technology_type
+    title: technology type
+    description: The technology type or platform of the reporters on the array.
+    slot_uri: EFO:0005521
+    range: TechnologyTypeMenu
+    required: true
+    examples:
+    - value: Proteomic profiling by mass spectrometry
+    exact_mappings:
+    - SDRF:technology%20type
+  proteomics_data_acquisition_method:
+    name: proteomics_data_acquisition_method
+    title: proteomics data acquisition method
+    description: proteomics data acquisition method
+    slot_uri: PRIDE:0000659
+    range: CommentProteomicsDataAcquisitionMethodMenu
+    required: true
+    examples:
+    - value: Data-dependent acquisition
+    exact_mappings:
+    - SDRF:comment%5Bproteomics%20data%20acquisition%20method%5D
+  technical_replicate:
+    name: technical_replicate
+    title: technical replicate
+    description: The study variable is 'technical replicate'. The string value denotes
+      the category of technical replicate, e.g. 'run generated from same sample'.
+    slot_uri: MS:1001808
+    range: WhitespaceMinimizedString
+    required: true
+    examples:
+    - value: 1, 2
+    exact_mappings:
+    - SDRF:comment%5Btechnical%20replicate%5D
+  data_file:
+    name: data_file
+    title: data file
+    description: A file stored for use on a computer containing data.
+    slot_uri: EFO:0004095
+    range: WhitespaceMinimizedString
+    required: true
+    examples:
+    - value: test.raw
+    exact_mappings:
+    - SDRF:comment%5Bdata%20file%5D
+  fraction_identifier:
+    name: fraction_identifier
+    title: fraction identifier
+    description: Identier string that describes the sample fraction. This identifier
+      should contain the fraction number(s) or similar information.
+    slot_uri: MS:1000858
+    range: WhitespaceMinimizedString
+    required: true
+    examples:
+    - value: '1'
+    exact_mappings:
+    - SDRF:comment%5Bfraction%20identifier%5D
+  label:
+    name: label
+    title: label
+    description: Quantification channel label
+    slot_uri: PRIDE:0000514
+    range: CommentLabelMenu
+    required: true
+    examples:
+    - value: ICAT heavy
+    exact_mappings:
+    - SDRF:comment%5Blabel%5D
+  instrument:
+    name: instrument
+    title: instrument
+    description: Description of the instrument or the mass spectrometer.
+    slot_uri: MS:1000463
+    range: CommentInstrumentMenu
+    required: true
+    examples:
+    - value: Orbitrap Exploris 120
+    exact_mappings:
+    - SDRF:comment%5Binstrument%5D
+  cleavage_agent_details:
+    name: cleavage_agent_details
+    title: cleavage agent details
+    description: Details of cleavage agent (enzyme)
+    slot_uri: MS:1001044
+    range: CommentCleavageAgentDetailsMenu
+    required: true
+    examples:
+    - value: 2-iodobenzoate
+    exact_mappings:
+    - SDRF:comment%5Bcleavage%20agent%20details%5D
+  modification_parameters:
+    name: modification_parameters
+    title: modification parameters
+    description: Modification parameters for the search engine run.
+    slot_uri: MS:1001055
+    range: WhitespaceMinimizedString
+    examples:
+    - value: Carbamidomethyl
+    exact_mappings:
+    - SDRF:comment%5Bmodification%20parameters%5D
+  precursor_mass_tolerance:
+    name: precursor_mass_tolerance
+    title: precursor mass tolerance
+    description: Threshold at precursor level to compare experimental mass with theoretical
+      mass
+    slot_uri: PRIDE:0000575
+    range: WhitespaceMinimizedString
+    examples:
+    - value: 10 ppm
+    exact_mappings:
+    - SDRF:comment%5Bprecursor%20mass%20tolerance%5D
+  fragment_mass_tolerance:
+    name: fragment_mass_tolerance
+    title: fragment mass tolerance
+    description: Threshold at fragment level to compare experimental mass with theoretical
+      mass
+    slot_uri: PRIDE:0000576
+    range: WhitespaceMinimizedString
+    required: true
+    examples:
+    - value: 0.05 Da
+    exact_mappings:
+    - SDRF:comment%5Bfragment%20mass%20tolerance%5D
+enums:
+  NullValueMenu:
+    name: NullValueMenu
+    title: null value menu
+    description: A menu of data collection status options for this field.
+    permissible_values:
+      not applicable:
+        text: not applicable
+        description: Determination of a value is not relevant in the current context.
+        meaning: NCIT:C48660
+        exact_mappings:
+        - SDRF:not%20applicable
+      not available:
+        text: not available
+        description: The desired information is not available.
+        meaning: NCIT:C126101
+        exact_mappings:
+        - SDRF:not%20available
+  CharacteristicsOrganismMenu:
+    name: CharacteristicsOrganismMenu
+    title: characteristics organism menu
+    description: ''
+    permissible_values:
+      homo sapiens:
+        text: homo sapiens
+        meaning: NCBITaxon:9606
+        exact_mappings:
+        - SDRF:Homo%20sapiens
+  CharacteristicsSexMenu:
+    name: CharacteristicsSexMenu
+    title: characteristics sex menu
+    description: A biological sex quality inhering in an individual or a population
+      whose sex organs contain only male gametes.
+    permissible_values:
+      male:
+        text: male
+        description: A biological sex quality inhering in an individual or a population
+          whose sex organs contain only male gametes.
+        meaning: PATO:0000384
+        exact_mappings:
+        - SDRF:male
+      female:
+        text: female
+        description: A biological sex quality inhering in an individual or a population
+          that only produces gametes that can be fertilised by male gametes.
+        meaning: PATO:0000383
+        exact_mappings:
+        - SDRF:female
+  TechnologyTypeMenu:
+    name: TechnologyTypeMenu
+    title: technology type menu
+    description: An assay where proteins in a sample are detected, quantified or otherwise
+      analysed using mass spectrometry
+    permissible_values:
+      proteomic profiling by mass spectrometry:
+        text: proteomic profiling by mass spectrometry
+        description: An assay where proteins in a sample are detected, quantified
+          or otherwise analysed using mass spectrometry
+        meaning: EFO:0002766
+        exact_mappings:
+        - SDRF:proteomic%20profiling%20by%20mass%20spectrometry
+  CommentProteomicsDataAcquisitionMethodMenu:
+    name: CommentProteomicsDataAcquisitionMethodMenu
+    title: comment[proteomics data acquisition method] Menu
+    description: ''
+    permissible_values:
+      Data-dependent acquisition:
+        text: Data-dependent acquisition
+        meaning: PRIDE:0000627
+        exact_mappings:
+        - SDRF:Data-dependent%20acquisition
+      Data-independent acquisition:
+        text: Data-independent acquisition
+        description: Predefined m/z ranges are interrogated either by fragmenting
+          all ions entering the mass spectrometer at every single point in chromatographic
+          time; or by dividing the m/z range into smaller m/z ranges for isolation
+          and fragmentation. See review in PMID:24281846.
+        meaning: PRIDE:0000450
+        exact_mappings:
+        - SDRF:Data-independent%20acquisition
+  CommentLabelMenu:
+    name: CommentLabelMenu
+    title: comment[label] Menu
+    description: ''
+    permissible_values:
+      ICAT heavy:
+        text: ICAT heavy
+        meaning: PRIDE:0000541
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000541
+        - SDRF:NT%3DICAT%20heavy
+      ICAT light:
+        text: ICAT light
+        meaning: PRIDE:0000542
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000542
+        - SDRF:NT%3DICAT%20light
+      ITRAQ113:
+        text: ITRAQ113
+        meaning: PRIDE:0000531
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000531
+        - SDRF:NT%3DITRAQ113
+      ITRAQ114:
+        text: ITRAQ114
+        meaning: PRIDE:0000532
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000532
+        - SDRF:NT%3DITRAQ114
+      ITRAQ115:
+        text: ITRAQ115
+        meaning: PRIDE:0000533
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000533
+        - SDRF:NT%3DITRAQ115
+      ITRAQ116:
+        text: ITRAQ116
+        meaning: PRIDE:0000534
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000534
+        - SDRF:NT%3DITRAQ116
+      ITRAQ117:
+        text: ITRAQ117
+        meaning: PRIDE:0000535
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000535
+        - SDRF:NT%3DITRAQ117
+      ITRAQ118:
+        text: ITRAQ118
+        meaning: PRIDE:0000536
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000536
+        - SDRF:NT%3DITRAQ118
+      ITRAQ119:
+        text: ITRAQ119
+        meaning: PRIDE:0000537
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000537
+        - SDRF:NT%3DITRAQ119
+      ITRAQ121:
+        text: ITRAQ121
+        meaning: PRIDE:0000538
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000538
+        - SDRF:NT%3DITRAQ121
+      label free sample:
+        text: label free sample
+        meaning: MS:1002038
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1002038
+        - SDRF:NT%3Dlabel%20free%20sample
+      13C:
+        text: 13C
+        description: Metabolic label 13C
+        meaning: PRIDE:0000621
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A%3A0000621
+        - SDRF:NT%3D13C
+      15N:
+        text: 15N
+        description: Metabolic label 15N
+        meaning: PRIDE:0000620
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A%3A0000620
+        - SDRF:NT%3D15N
+      18O:
+        text: 18O
+        description: Metabolic label 18O
+        meaning: PRIDE:0000622
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000622
+        - SDRF:NT%3D18O
+      TMT126:
+        text: TMT126
+        meaning: PRIDE:0000516
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000516
+        - SDRF:NT%3DTMT126
+      TMT127:
+        text: TMT127
+        meaning: PRIDE:0000517
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000517
+        - SDRF:NT%3DTMT127
+      TMT127C:
+        text: TMT127C
+        meaning: PRIDE:0000518
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000518
+        - SDRF:NT%3DTMT127C
+      TMT127N:
+        text: TMT127N
+        meaning: PRIDE:0000519
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000519
+        - SDRF:NT%3DTMT127N
+      TMT128:
+        text: TMT128
+        meaning: PRIDE:0000520
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000520
+        - SDRF:NT%3DTMT128
+      TMT128C:
+        text: TMT128C
+        meaning: PRIDE:0000521
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000521
+        - SDRF:NT%3DTMT128C
+      TMT128N:
+        text: TMT128N
+        meaning: PRIDE:0000522
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000522
+        - SDRF:NT%3DTMT128N
+      TMT129:
+        text: TMT129
+        meaning: PRIDE:0000523
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000523
+        - SDRF:NT%3DTMT129
+      TMT129C:
+        text: TMT129C
+        meaning: PRIDE:0000524
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000524
+        - SDRF:NT%3DTMT129C
+      TMT129N:
+        text: TMT129N
+        meaning: PRIDE:0000525
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000525
+        - SDRF:NT%3DTMT129N
+      TMT130:
+        text: TMT130
+        meaning: PRIDE:0000526
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000526
+        - SDRF:NT%3DTMT130
+      TMT130C:
+        text: TMT130C
+        meaning: PRIDE:0000527
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000527
+        - SDRF:NT%3DTMT130C
+      TMT130N:
+        text: TMT130N
+        meaning: PRIDE:0000528
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000528
+        - SDRF:NT%3DTMT130N
+      TMT131:
+        text: TMT131
+        meaning: PRIDE:0000529
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000529
+        - SDRF:NT%3DTMT131
+      TMT131C:
+        text: TMT131C
+        meaning: PRIDE:0000581
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000581
+        - SDRF:NT%3DTMT131C
+      TMT131N:
+        text: TMT131N
+        meaning: PRIDE:0000580
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000580
+        - SDRF:NT%3DTMT131N
+      TMT132C:
+        text: TMT132C
+        meaning: PRIDE:0000583
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000583
+        - SDRF:NT%3DTMT132C
+      TMT132N:
+        text: TMT132N
+        meaning: PRIDE:0000582
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000582
+        - SDRF:NT%3DTMT132N
+      TMT133C:
+        text: TMT133C
+        meaning: PRIDE:0000633
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000633
+        - SDRF:NT%3DTMT133C
+      TMT133N:
+        text: TMT133N
+        meaning: PRIDE:0000632
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000632
+        - SDRF:NT%3DTMT133N
+      TMT134C:
+        text: TMT134C
+        meaning: PRIDE:0000642
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000642
+        - SDRF:NT%3DTMT134C
+      TMT134N:
+        text: TMT134N
+        meaning: PRIDE:0000634
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000634
+        - SDRF:NT%3DTMT134N
+      TMT135N:
+        text: TMT135N
+        meaning: PRIDE:0000643
+        exact_mappings:
+        - SDRF:AC%3DPRIDE%3A0000643
+        - SDRF:NT%3DTMT135N
+  CommentInstrumentMenu:
+    name: CommentInstrumentMenu
+    title: comment[instrument] Menu
+    description: Thermo Scientific Orbitrap Exploris 120 Quadrupole Orbitrap MS.
+    permissible_values:
+      Orbitrap Exploris 120:
+        text: Orbitrap Exploris 120
+        description: Thermo Scientific Orbitrap Exploris 120 Quadrupole Orbitrap MS.
+        meaning: MS:1003095
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Exploris%20120
+        - SDRF:AC%3DMS%3A1003095
+      Orbitrap Exploris 240:
+        text: Orbitrap Exploris 240
+        description: Thermo Scientific Orbitrap Exploris 240 Quadrupole Orbitrap MS.
+        meaning: MS:1003094
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Exploris%20240
+        - SDRF:AC%3DMS%3A1003094
+      Orbitrap Exploris 480:
+        text: Orbitrap Exploris 480
+        description: Thermo Scientific Orbitrap Exploris 480 Quadrupole Orbitrap MS.
+        meaning: MS:1003028
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Exploris%20480
+        - SDRF:AC%3DMS%3A1003028
+      Orbitrap Ascend:
+        text: Orbitrap Ascend
+        description: Thermo Scientific Orbitrap Ascend mass spectrometer with Tribrid
+          architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap
+          mass analyzers.
+        meaning: MS:1003356
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Ascend
+        - SDRF:AC%3DMS%3A1003356
+      Orbitrap Astral:
+        text: Orbitrap Astral
+        description: 'Thermo Scientific Orbitrap Astral mass spectrometer contains
+          three mass analyzers: a quadrupole analyzer, an Orbitrap analyzer, and the
+          Astral analyzer.'
+        meaning: MS:1003378
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Astral
+        - SDRF:AC%3DMS%3A1003378
+      Orbitrap Eclipse:
+        text: Orbitrap Eclipse
+        description: Thermo Scientific Orbitrap Eclipse mass spectrometer with Tribrid
+          architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap
+          mass analyzers.
+        meaning: MS:1003029
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Eclipse
+        - SDRF:AC%3DMS%3A1003029
+      Orbitrap Fusion:
+        text: Orbitrap Fusion
+        description: Thermo Scientific Orbitrap Fusion.
+        meaning: MS:1002416
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Fusion
+        - SDRF:AC%3DMS%3A1002416
+      Orbitrap Fusion ETD:
+        text: Orbitrap Fusion ETD
+        description: Thermo Scientific Orbitrap Fusion with ETD.
+        meaning: MS:1002417
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Fusion%20ETD
+        - SDRF:AC%3DMS%3A1002417
+      Orbitrap Fusion Lumos:
+        text: Orbitrap Fusion Lumos
+        description: Thermo Scientific Orbitrap Fusion Lumos mass spectrometer with
+          Tribrid architecture consisting of quadrupole mass filter, linear ion trap
+          and Orbitrap mass analyzers.
+        meaning: MS:1002732
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20Fusion%20Lumos
+        - SDRF:AC%3DMS%3A1002732
+      Orbitrap ID-X:
+        text: Orbitrap ID-X
+        description: Thermo Scientific Orbitrap ID-X mass spectrometer with Tribrid
+          architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap
+          mass analyzers.
+        meaning: MS:1003112
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20ID-X
+        - SDRF:AC%3DMS%3A1003112
+      Orbitrap IQ-X:
+        text: Orbitrap IQ-X
+        description: Thermo Scientific Orbitrap IQ-X mass spectrometer with Tribrid
+          architecture consisting of quadrupole mass filter, linear ion trap and Orbitrap
+          mass analyzers.
+        meaning: MS:1003411
+        exact_mappings:
+        - SDRF:NT%3DOrbitrap%20IQ-X
+        - SDRF:AC%3DMS%3A1003411
+      LTQ Orbitrap:
+        text: LTQ Orbitrap
+        description: Finnigan LTQ Orbitrap MS.
+        meaning: MS:1000449
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap
+        - SDRF:AC%3DMS%3A1000449
+      LTQ Orbitrap Classic:
+        text: LTQ Orbitrap Classic
+        description: Thermo Fisher Scientific LTQ Orbitrap Classic.
+        meaning: MS:1002835
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap%20Classic
+        - SDRF:AC%3DMS%3A1002835
+      LTQ Orbitrap Discovery:
+        text: LTQ Orbitrap Discovery
+        description: LTQ Orbitrap Discovery.
+        meaning: MS:1000555
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap%20Discovery
+        - SDRF:AC%3DMS%3A1000555
+      LTQ Orbitrap Elite:
+        text: LTQ Orbitrap Elite
+        description: Thermo Scientific LTQ Orbitrap Elite, often just referred to
+          as the Orbitrap Elite.
+        meaning: MS:1001910
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap%20Elite
+        - SDRF:AC%3DMS%3A1001910
+      LTQ Orbitrap Velos:
+        text: LTQ Orbitrap Velos
+        description: Finnigan LTQ Orbitrap Velos MS
+        meaning: MS:1001742
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap%20Velos
+        - SDRF:AC%3DMS%3A1001742
+      LTQ Orbitrap Velos Pro:
+        text: LTQ Orbitrap Velos Pro
+        description: Thermo Scientific LTQ Orbitrap Velos Pro, often just referred
+          to as the Orbitrap Velos Pro.
+        meaning: MS:1003096
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap%20Velos%20Pro
+        - SDRF:AC%3DMS%3A1003096
+      LTQ Orbitrap XL:
+        text: LTQ Orbitrap XL
+        description: LTQ Orbitrap XL.
+        meaning: MS:1000556
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap%20XL
+        - SDRF:AC%3DMS%3A1000556
+      LTQ Orbitrap XL ETD:
+        text: LTQ Orbitrap XL ETD
+        description: Thermo Scientific LTQ Orbitrap XL MS with ETD.
+        meaning: MS:1000639
+        exact_mappings:
+        - SDRF:NT%3DLTQ%20Orbitrap%20XL%20ETD
+        - SDRF:AC%3DMS%3A1000639
+      MALDI LTQ Orbitrap:
+        text: MALDI LTQ Orbitrap
+        description: Thermo Scientific MALDI LTQ Orbitrap MS.
+        meaning: MS:1000643
+        exact_mappings:
+        - SDRF:NT%3DMALDI%20LTQ%20Orbitrap
+        - SDRF:AC%3DMS%3A1000643
+      Q Exactive GC Orbitrap:
+        text: Q Exactive GC Orbitrap
+        description: Q Exactive GC Orbitrap GC-MS/MS hybrid quadrupole Orbitrap mass
+          spectrometer.
+        meaning: MS:1003395
+        exact_mappings:
+        - SDRF:NT%3DQ%20Exactive%20GC%20Orbitrap
+        - SDRF:AC%3DMS%3A1003395
+      Q Exactive HF-X:
+        text: Q Exactive HF-X
+        description: Thermo Scientific Q Exactive HF-X Hybrid Quadrupole Orbitrap
+          MS.
+        meaning: MS:1002877
+        exact_mappings:
+        - SDRF:NT%3DQ%20Exactive%20HF-X
+        - SDRF:AC%3DMS%3A1002877
+      Q Exactive UHMR:
+        text: Q Exactive UHMR
+        description: Thermo Scientific Q Exactive UHMR (Ultra High Mass Range) Hybrid
+          Quadrupole Orbitrap MS.
+        meaning: MS:1003245
+        exact_mappings:
+        - SDRF:NT%3DQ%20Exactive%20UHMR
+        - SDRF:AC%3DMS%3A1003245
+      Bruker Daltonics timsTOF series:
+        text: Bruker Daltonics timsTOF series
+        description: Bruker Daltonics timsTOF series
+        meaning: MS:1003123
+        exact_mappings:
+        - SDRF:NT%3DBruker%20Daltonics%20timsTOF%20series
+        - SDRF:AC%3DMS%3A1003123
+      timsTOF:
+        text: timsTOF
+        description: Bruker Daltonics' timsTOF.
+        meaning: MS:1003229
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF
+        - SDRF:AC%3DMS%3A1003229
+      timsTOF fleX:
+        text: timsTOF fleX
+        description: Bruker Daltonics' timsTOF fleX
+        meaning: MS:1003124
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20fleX
+        - SDRF:AC%3DMS%3A1003124
+      timsTOF fleX MALDI-2:
+        text: timsTOF fleX MALDI-2
+        description: Bruker Daltonics' timsTOF fleX MALDI-2.
+        meaning: MS:1003397
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20fleX%20MALDI-2
+        - SDRF:AC%3DMS%3A1003397
+      timsTOF HT:
+        text: timsTOF HT
+        description: Bruker Daltonics' timsTOF HT.
+        meaning: MS:1003404
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20HT
+        - SDRF:AC%3DMS%3A1003404
+      timsTOF Pro:
+        text: timsTOF Pro
+        description: Bruker Daltonics' timsTOF Pro.
+        meaning: MS:1003005
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20Pro
+        - SDRF:AC%3DMS%3A1003005
+      timsTOF Pro 2:
+        text: timsTOF Pro 2
+        description: Bruker Daltonics' timsTOF Pro 2.
+        meaning: MS:1003230
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20Pro%202
+        - SDRF:AC%3DMS%3A1003230
+      timsTOF SCP:
+        text: timsTOF SCP
+        description: Bruker Daltonics' timsTOF SCP.
+        meaning: MS:1003231
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20SCP
+        - SDRF:AC%3DMS%3A1003231
+      timsTOF Ultra:
+        text: timsTOF Ultra
+        description: Bruker Daltonics' timsTOF Ultra.
+        meaning: MS:1003383
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20Ultra
+        - SDRF:AC%3DMS%3A1003383
+      timsTOF Ultra 2:
+        text: timsTOF Ultra 2
+        description: Bruker Daltonics timsTOF Ultra 2.
+        meaning: MS:1003412
+        exact_mappings:
+        - SDRF:NT%3DtimsTOF%20Ultra%202
+        - SDRF:AC%3DMS%3A1003412
+  CommentCleavageAgentDetailsMenu:
+    name: CommentCleavageAgentDetailsMenu
+    title: comment[cleavage agent details] Menu
+    description: Chemical iodobenzoate. Cleaves after W.
+    permissible_values:
+      2-iodobenzoate:
+        text: 2-iodobenzoate
+        description: Chemical iodobenzoate. Cleaves after W.
+        meaning: MS:1001918
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001918
+        - SDRF:NT%3D2-iodobenzoate
+      Arg-C:
+        text: Arg-C
+        description: Endoproteinase Arg-C.
+        meaning: MS:1001303
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001303
+        - SDRF:NT%3DArg-C
+      Asp-N:
+        text: Asp-N
+        description: Endoproteinase Asp-N.
+        meaning: MS:1001304
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001304
+        - SDRF:NT%3DAsp-N
+      Asp-N_ambic:
+        text: Asp-N_ambic
+        description: Enzyme Asp-N, Ammonium Bicarbonate (AmBic).
+        meaning: MS:1001305
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001305
+        - SDRF:NT%3DAsp-N_ambic
+      Chymotrypsin:
+        text: Chymotrypsin
+        description: Enzyme chymotrypsin.
+        meaning: MS:1001306
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001306
+        - SDRF:NT%3DChymotrypsin
+      CNBr:
+        text: CNBr
+        description: Cyanogen bromide.
+        meaning: MS:1001307
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001307
+        - SDRF:NT%3DCNBr
+      Formic_acid:
+        text: Formic_acid
+        description: Formic acid
+        meaning: MS:1001308
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001308
+        - SDRF:NT%3DFormic_acid
+      glutamyl endopeptidase:
+        text: glutamyl endopeptidase
+        description: Enzyme glutamyl endopeptidase (EC 3.4.21.19).
+        meaning: MS:1001917
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001917
+        - SDRF:NT%3Dglutamyl%20endopeptidase
+      leukocyte elastase:
+        text: leukocyte elastase
+        description: Enzyme leukocyte elastase (EC 3.4.21.37).
+        meaning: MS:1001915
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001915
+        - SDRF:NT%3Dleukocyte%20elastase
+      Lys-C:
+        text: Lys-C
+        description: Endoproteinase Lys-C.
+        meaning: MS:1001309
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001309
+        - SDRF:NT%3DLys-C
+      Lys-C/P:
+        text: Lys-C/P
+        description: Proteinase Lys-C/P.
+        meaning: MS:1001310
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001310
+        - SDRF:NT%3DLys-C/P
+      Lys-N:
+        text: Lys-N
+        description: Metalloendopeptidase found in the mushroom Grifola frondosa that
+          cleaves proteins on the amino side of lysine residues
+        meaning: MS:1003093
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1003093
+        - SDRF:NT%3DLys-N
+      LysargiNase:
+        text: LysargiNase
+        description: Metalloproteinase found in Methanosarcina acetivorans that cleaves
+          on the N-terminal side of lysine and arginine residues.
+        meaning: MS:1002708
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1002708
+        - SDRF:NT%3DLysargiNase
+      no cleavage:
+        text: no cleavage
+        meaning: MS:1001955
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001955
+        - SDRF:NT%3Dno%20cleavage
+      PepsinA:
+        text: PepsinA
+        description: PepsinA proteinase.
+        meaning: MS:1001311
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001311
+        - SDRF:NT%3DPepsinA
+      proline endopeptidase:
+        text: proline endopeptidase
+        description: Enzyme proline endopeptidase (EC 3.4.21.26).
+        meaning: MS:1001916
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001916
+        - SDRF:NT%3Dproline%20endopeptidase
+      TrypChymo:
+        text: TrypChymo
+        description: Cleavage agent TrypChymo.
+        meaning: MS:1001312
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001312
+        - SDRF:NT%3DTrypChymo
+      Trypsin:
+        text: Trypsin
+        description: Enzyme trypsin.
+        meaning: MS:1001251
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001251
+        - SDRF:NT%3DTrypsin
+      Trypsin/P:
+        text: Trypsin/P
+        description: Cleavage agent Trypsin/P.
+        meaning: MS:1001313
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001313
+        - SDRF:NT%3DTrypsin/P
+      unspecific cleavage:
+        text: unspecific cleavage
+        description: Unspecific cleavage.
+        meaning: MS:1001956
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001956
+        - SDRF:NT%3Dunspecific%20cleavage
+      V8-DE:
+        text: V8-DE
+        description: Cleavage agent V8-DE
+        meaning: MS:1001314
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001314
+        - SDRF:NT%3DV8-DE
+      V8-E:
+        text: V8-E
+        description: Cleavage agent V8-E.
+        meaning: MS:1001315
+        exact_mappings:
+        - SDRF:AC%3DMS%3A1001315
+        - SDRF:NT%3DV8-E
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'
